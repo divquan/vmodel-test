@@ -46,18 +46,11 @@ const Navbar = () => {
           <div>
             <a
               href="https://vmodelweb.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
               className="hidden md:inline-block"
             >
               <VMLogo isDark={true} width={53} height={53} />
             </a>
-            <a
-              href="https://vmodelweb.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              className="md:hidden"
-            >
+            <a href="https://vmodelweb.vercel.app/" className="md:hidden">
               <VMLogo isDark={true} width={40} height={40} />
             </a>
           </div>

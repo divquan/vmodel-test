@@ -50,7 +50,10 @@ export const subTopics = {
     { name: "Reviews and Feedback", link: "review_and_feedback" },
     { name: "Location", link: "location" },
     { name: "Grid and Galleries", link: "grid_and_galleries" },
-
+    {
+      name: "Splitting images (Splitter)",
+      link: "splitting_images_splitter",
+    },
     // { name: "Portfolio galleries/grids", link: "portfolio_galleries_grids" },
     // { name: "Messages", link: "messages" },
     // { name: "My network", link: "my_network" },
@@ -280,6 +283,19 @@ export const subTopicContent = {
     </p>
     </div>
     </article>`,
+    splitting_images_splitter: `<article>
+    <h1>Splitting images (Splitter)</h1>
+    <div>
+      <p>
+      Introducing the Splitter – a tool we've crafted to empower VModel members in tailoring their
+      images seamlessly to fit the unique grid layout of the VModel portfolio. This innovative feature is
+      a game-changer for those aiming to curate a visually striking profile without the hassle of
+      external tools. Now, effortlessly split your frames and make your creative vision come to life
+      within the captivating aesthetic of the VModel portfolio. Elevate your profile with the simplicity
+      and precision of the Splitter tool.
+      </p>
+    </div>
+  </article>`,
     // portfolio_galleries_grids: `<article><h1></h1></article>`,
     // messages: `<article><h1></h1></article>`,
     // my_network: `<article><h1></h1></article>`,
