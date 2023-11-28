@@ -1052,6 +1052,18 @@ your goals and values.
     <div></div>
     </article>`,
   },
+  vmodel_credits: {
+    vmc_and_how_they_work: `<article>
+    <h1>VModel Credits and How They Work</h1>
+
+    <div>
+    <p>
+    Discover the power of VMC Points, VModel's virtual currency crafted to enhance your platform adventure. Earn these points through various activities such as completing gigs, active community engagement, and special events. Your accumulated VMC Points open doors to a realm of rewards—unlock exclusive features, access premium content, and enjoy discounts from our esteemed partner brands. Beyond being a mere virtual currency, VMC Points introduce a gamified aspect, turning your participation into a showcase of achievements. Join in the community spirit, celebrate creativity, and contribute positively as you earn and redeem VMC Points. Dive into a world where creativity is celebrated, and rewards await. For in-depth insights into earning and redeeming points, explore our Help Centre sections. Happy creating!
+
+    </p>
+    </div>
+    </article>`,
+  },
 };
 
 export const egHTML = `<article>
