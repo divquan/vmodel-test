@@ -1,12 +1,19 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SocialHandle from "./SocialHandle";
 import { dm_sans } from "@/utils/fonts";
 import { VMLogo } from "./VMLogo";
 
 import VMContainer from "./VMContainer";
 import Link from "next/link";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+} from "@mui/material";
 
 const FootListItem = ({ title, url, isExternal }) => {
   return (
@@ -33,6 +40,9 @@ const FootListItem = ({ title, url, isExternal }) => {
 };
 
 const VModelFooterN = ({ noPadd = false }) => {
+  const [isOpen, setisOpen] = useState(0);
+  const mobile = require("is-mobile");
+  const [isMobileView, setisMobileView] = useState(false);
   const FootLink = [
     {
       mainTitle: "VModel",
@@ -75,11 +85,31 @@ const VModelFooterN = ({ noPadd = false }) => {
       ],
     },
     {
-      mainTitle: "For Businesses",
+      mainTitle: "Help Centre",
       subLink: [
+        // {
+        //   title: "FAQ",
+        //   url: "https://vmodel-faq.vercel.app/",
+        //   isExternal: false,
+        // },
         {
-          title: "FAQ",
-          url: "https://vmodel-faq.vercel.app/",
+          title: "Businesses",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Creators",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Partnerships",
+          url: "",
+          isExternal: false,
+        },
+        {
+          title: "Careers",
+          url: "",
           isExternal: false,
         },
         {
@@ -89,11 +119,6 @@ const VModelFooterN = ({ noPadd = false }) => {
         },
         {
           title: "Create an ad on VModel",
-          url: "",
-          isExternal: false,
-        },
-        {
-          title: "Spotlight",
           url: "",
           isExternal: false,
         },
@@ -112,15 +137,10 @@ const VModelFooterN = ({ noPadd = false }) => {
           url: "",
           isExternal: false,
         },
-        {
-          title: "Invite and Save",
-          url: "",
-          isExternal: false,
-        },
       ],
     },
     {
-      mainTitle: "For Creatives",
+      mainTitle: "Creatives/Businesses",
       subLink: [
         {
           title: "FAQ",
@@ -165,13 +185,24 @@ const VModelFooterN = ({ noPadd = false }) => {
       ],
     },
   ];
+
+  useEffect(() => {
+    if (mobile()) {
+      setisMobileView(true);
+    }
+  }, [mobile]);
+
+  const _handleChange = (index) => {
+    console.log(index);
+  };
+
   return (
     <>
       <VMContainer autoHeight={true} bgSec={false}>
         <section
           className={`${!noPadd ? "pt-[2%]" : ""} pb-[6%] vm-bg contain`}
         >
-          <div className="md:lg:py-[100px] pt-9 md:pt-0 md:pb-6 lg:pb-0 flex flex-col md:flex-row md:mb-9 relative">
+          <div className="md:lg:py-[100px] md:pt-0 md:pb-6 lg:pb-0 flex flex-col md:flex-row md:mb-9 relative">
             <div className="w-full md:w-[45%] flex flex-col justify-between md:pr-[10%]">
               <div className="space-y-3">
                 <div className="flex items-center justify-center md:block -ml-2 mb-5">
@@ -201,6 +232,7 @@ const VModelFooterN = ({ noPadd = false }) => {
                   <div className="relative">
                     <input
                       className="w-full h-[60px] md:h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
+                      type="email"
                       style={{
                         background: "rgb(237 206 171 / 50%)",
                       }}
@@ -319,29 +351,64 @@ const VModelFooterN = ({ noPadd = false }) => {
               </div>
             </div>
             <div className="w-full mt-9 md:mt-0 md:w-[60%]">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4">
-                {FootLink.map((footItem, index) => (
-                  <div key={index}>
-                    <h4
-                      className={`font-bold text-lg vm-text-sec mb-6  ${dm_sans.className}`}
-                    >
-                      {footItem?.mainTitle}
-                    </h4>
-                    <div className="space-y-3">
-                      {footItem?.subLink.map((subItem, indexSub) => (
-                        <div key={indexSub}>
-                          <FootListItem
-                            title={subItem?.title}
-                            url={subItem?.url}
-                            isExternal={subItem?.isExternal}
-                            key={indexSub}
-                          />
-                        </div>
-                      ))}
+              {!isMobileView ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-0 md:gap-x-4">
+                  {FootLink.map((footItem, index) => (
+                    <div key={index}>
+                      <h4
+                        className={`font-bold text-lg vm-text-sec mb-6  ${dm_sans.className}`}
+                      >
+                        {footItem?.mainTitle}
+                      </h4>
+                      <div className="space-y-3">
+                        {footItem?.subLink.map((subItem, indexSub) => (
+                          <div key={indexSub}>
+                            <FootListItem
+                              title={subItem?.title}
+                              url={subItem?.url}
+                              isExternal={subItem?.isExternal}
+                              key={indexSub}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="vm-accord">
+                  {FootLink.map((footItem, index) => (
+                    <Accordion
+                      key={index}
+                      // expanded={index == isOpen ? true : false}
+                      // onChange={() => _handleChange(index)}
+                      defaultExpanded={index == 0 ? true : false}
+                    >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>{footItem?.mainTitle}</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <div className="space-y-3">
+                          {footItem?.subLink.map((subItem, indexSub) => (
+                            <div key={indexSub}>
+                              <FootListItem
+                                title={subItem?.title}
+                                url={subItem?.url}
+                                isExternal={subItem?.isExternal}
+                                key={indexSub}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           <div className="pt-9 flex items-center justify-center text-center">

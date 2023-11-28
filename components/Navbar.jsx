@@ -35,7 +35,7 @@ const Navbar = () => {
   };
   return (
     <nav className="w-full ">
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between md:pl-[1%] py-4">
         <div className="flex  items-center gap-3 md:gap-6 ">
           {/* <Image
               alt="vmodel logo"
@@ -61,10 +61,9 @@ const Navbar = () => {
           </a>
         </div>
         {/* <span className="text-2xl font-bold">Help Center</span> */}
-
         <form onSubmit={handleSearch} className="relative hidden md:block">
           <input
-            className="w-full h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40 "
+            className="w-[350px] h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40 "
             style={{
               background: "rgb(237 206 171 / 50%)",
             }}
@@ -92,8 +91,7 @@ const Navbar = () => {
           {/* <MenuTwo /> */}
         </div>
         {/* <img src={light.src} className="h-8 w-8 text-white" /> */}
-
-        {show ? <Menu setShow={setShow} /> : null}
+        <Menu show={show} setShow={setShow} />
       </div>
     </nav>
   );
@@ -101,7 +99,7 @@ const Navbar = () => {
 
 export default Navbar;
 
-const Menu = ({ setShow }) => {
+const Menu = ({ show, setShow }) => {
   const pathname = usePathname();
   const currentroute = pathname.split("/")[1];
   const subCurrentRoute = pathname.split("/")[2];
@@ -119,7 +117,7 @@ const Menu = ({ setShow }) => {
       document.body.style.overflow = "auto";
     };
   }, []);
-
+  if (!show) return null;
   return (
     <div
       id="nav_menu"

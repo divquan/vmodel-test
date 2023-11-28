@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en w-full">
       <body className={dm_sans.className + " bg-[#503C3B] text-white"}>
-        <Navbar />
-        {/* <Header /> */}
+        {/* <Navbar /> */}
+        <Header />
         <div className="p-3 md:p-6 relative mb-10">
           <div
             className="gap-2 md:gap-5  flex  max-w-5xl flex-col  mx-auto h-fit

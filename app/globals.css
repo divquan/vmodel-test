@@ -17,9 +17,9 @@
   --vm-lspacing-sm: -1.05px;
 }
 
-body {
+/* body {
   overflow-x: hidden !important;
-}
+} */
 
 .vm-h1 {
   font-size: var(--vm-text-lg);
@@ -253,4 +253,14 @@ body {
     right: 30% !important;
     transform: translateX(-40%);
   }
+}
+
+.vm-accord .MuiPaper-elevation {
+  background-color: #5c4948 !important;
+  box-shadow: none !important;
+}
+
+.vm-accord .MuiAccordionSummary-content,
+.vm-accord .MuiSvgIcon-root {
+  color: #d6c2b4 !important;
 }

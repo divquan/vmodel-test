@@ -24,6 +24,7 @@ const Sidebar = ({ show }) => {
         </p>
       </Link>
       {generalTopics.map((topic, index) => {
+        if (topic.link === "not") return null;
         const subTopic = subTopics[topic.link];
         const LinkToFirstSubTopic = subTopic[0];
         return (
