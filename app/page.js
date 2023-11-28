@@ -16,7 +16,7 @@ const page = () => {
         {generalTopics.map((topic, index) => {
           if (topic.link == "not") {
             return (
-              <div className="w-1/2 md:w-1/3 lg:w-1/3">
+              <div className="w-1/2 md:w-1/3 lg:w-1/3" key={index}>
                 <div
                   key={index}
                   className={`h-32 border border-gray-100 gap-5 w-full flex flex-col justify-center items-center  ${
