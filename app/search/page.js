@@ -23,11 +23,11 @@ const SearchPage = () => {
     const matchingTopic = generalTopics.find((topic) => topic.link === link);
     return matchingTopic ? matchingTopic.name : null;
   }
+  const search = searchParams.get("q");
 
   useEffect(() => {
-    const search = searchParams.get("q");
     setSearchTerm(search);
-  }, []);
+  }, [search]);
 
   useEffect(() => {
     if (searchTerm) {
@@ -40,7 +40,7 @@ const SearchPage = () => {
         Search
       </h1>
 
-      <div className="relative">
+      <div className="relative lg:hidden">
         <input
           type="search"
           className="w-full h-[45px] rounded-[80px] px-5 text-white outline-none placeholder:text-white placeholder:opacity-40"
@@ -62,8 +62,9 @@ const SearchPage = () => {
       </div>
       <div className="mt-3">
         <h2>
-          Search results for &quot;
-          <span className="font-bold">{searchTerm} </span>&quot;
+          Search results
+          {/* for &quot;
+          <span className="font-bold">{searchTerm} </span>&quot; */}
         </h2>
 
         <div className="flex flex-col gap-5 mt-3">

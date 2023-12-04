@@ -49,13 +49,13 @@ const VMHeader = () => {
   const listLink = [
     {
       id: 0,
-      url: "/",
+      url: "https://www.vmodelapp.com",
       linkText: "Home",
       externalLinks: false,
     },
     {
       id: 3,
-      url: "/about",
+      url: "https://www.vmodelapp.com/about",
       linkText: "About Us",
       externalLinks: false,
     },

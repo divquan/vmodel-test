@@ -49,7 +49,7 @@ const VModelFooterN = ({ noPadd = false }) => {
       subLink: [
         {
           title: "About us",
-          url: "/about",
+          url: "https://www.vmodelapp.com/about",
           isExternal: false,
         },
         {
